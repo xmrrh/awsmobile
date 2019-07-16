@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">AmplifyAIDemo</string>
+    <string name="language_prompt_asr">Choose a language</string>
+
+    <string-array name="srclanguage_array_asr">
+<!--        <item>British English (en-GB)</item>
+        <item>US English (en-US)</item>
+        <item>French (fr-FR)</item>
+        <item>Canadian French (fr-CA)</item>
+        <item>US Spanish (es-US)</item>-->
+
+        <item>Chinese (Simplified)</item>
+        <item>Chinese (Traditional)</item>
+        <item>Indonesian</item>
+        <item>Japanese</item>
+        <item>Korean</item>
+        <item>Malay</item>
+        <item>Danish</item>
+        <item>English</item>
+        <item>German</item>
+        <item>Norwegian</item>
+        <item>Swedish</item>
+        <item>French</item>
+        <item>Italian</item>
+        <item>Spanish</item>
+        <item>Portuguese</item>
+        <item>Czech</item>
+        <item>Polish</item>
+        <item>Russian</item>
+        <item>Arabic</item>
+        <item>Hebrew</item>
+        <item>Hindi</item>
+        <item>Persian</item>
+        <item>Finnish</item>
+        <item>Turkish</item>
+    </string-array>
+
+    <string name="language_prompt_translate">Choose a language</string>
+    <string name="listen">Listen your voice..</string>
+    <string name="start">Start..</string>
+    <string name="say">SAY!!</string>
+
+    <string-array name="srclanguage_array_translate">
+        <item>Chinese (Simplified)</item>
+        <item>Chinese (Traditional)</item>
+        <item>Indonesian</item>
+        <item>Japanese</item>
+        <item>Korean</item>
+        <item>Malay</item>
+        <item>Danish</item>
+        <item>English</item>
+        <item>German</item>
+        <item>Norwegian</item>
+        <item>Swedish</item>
+        <item>French</item>
+        <item>Italian</item>
+        <item>Spanish</item>
+        <item>Portuguese</item>
+        <item>Czech</item>
+        <item>Polish</item>
+        <item>Russian</item>
+        <item>Arabic</item>
+        <item>Hebrew</item>
+        <item>Hindi</item>
+        <item>Persian</item>
+        <item>Finnish</item>
+        <item>Turkish</item>
+    </string-array>
+</resources>
+
+
+
+
