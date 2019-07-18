@@ -5,15 +5,6 @@ import com.amazonaws.mobile.client.AWSMobileClient;
 import java.util.UUID;
 
 public class Util {
-/*    public static String convertCountryCode(String src){
-        switch (src){
-            case "British English (en-GB)" : return "en-GB";
-            case "US English (en-US)" : return "en-US";
-            case "French (fr-FR)" : return "fr-FR";
-            case "Canadian French (fr-CA)" : return "fr-CA";
-            case "US Spanish (es-US)" : return "es-US";
-        }
-    }*/
 
     public static String getUUID() {
         return UUID.randomUUID().toString();
@@ -21,7 +12,6 @@ public class Util {
     public static String getUserName() {
         return AWSMobileClient.getInstance().getUsername();
     }
-
 
     public static String convertCountryCode(int src){
         switch (src){

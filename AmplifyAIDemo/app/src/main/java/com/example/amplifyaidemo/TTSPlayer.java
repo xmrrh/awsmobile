@@ -3,11 +3,11 @@ package com.example.amplifyaidemo;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.util.Log;
-
-import com.amazonaws.services.polly.AmazonPollyPresigningClient;
-import com.amazonaws.services.polly.model.OutputFormat;
-import com.amazonaws.services.polly.model.SynthesizeSpeechPresignRequest;
-
+/*  POLLY #100 --*/
+//import com.amazonaws.services.polly.AmazonPollyPresigningClient;
+//import com.amazonaws.services.polly.model.OutputFormat;
+//import com.amazonaws.services.polly.model.SynthesizeSpeechPresignRequest;
+/* -- POLLY #100 */
 import java.io.IOException;
 import java.net.URL;
 
@@ -24,8 +24,9 @@ public class TTSPlayer {
     public TTSPlayer() {
         setupNewMediaPlayer();
     }
-
-    public void playVoice(AmazonPollyPresigningClient client, String voicesId, String textToRead) {
+    /*  POLLY #100 --*/
+   /*
+   public void playVoice(AmazonPollyPresigningClient client, String voicesId, String textToRead) {
         try {
             SynthesizeSpeechPresignRequest synthesizeSpeechPresignRequest =
                     new SynthesizeSpeechPresignRequest()
@@ -46,7 +47,8 @@ public class TTSPlayer {
 
         doPlay(presignedSynthesizeSpeechUrl);
     }
-
+    */
+    /* -- POLLY #100 */
     public void doPlay(URL url)
     {
         if (mediaPlayer.isPlaying()) {

@@ -23,9 +23,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.amazonaws.amplify.generated.graphql.CreateTranslatedHistoryMutation;
-import com.amazonaws.amplify.generated.graphql.DeleteTranslatedHistoryMutation;
-import com.amazonaws.amplify.generated.graphql.ListTranslatedHistorysQuery;
+
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
@@ -34,33 +32,50 @@ import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.UserStateDetails;
 import com.amazonaws.mobile.config.AWSConfiguration;
-import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
-import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
-import com.amazonaws.mobileconnectors.appsync.sigv4.CognitoUserPoolsAuthProvider;
-import com.amazonaws.mobileconnectors.pinpoint.PinpointConfiguration;
-import com.amazonaws.mobileconnectors.pinpoint.PinpointManager;
-import com.amazonaws.services.polly.AmazonPollyPresigningClient;
-import com.amazonaws.services.polly.model.DescribeVoicesRequest;
-import com.amazonaws.services.polly.model.DescribeVoicesResult;
-import com.amazonaws.services.polly.model.Voice;
-import com.amazonaws.services.translate.AmazonTranslateAsyncClient;
-import com.amazonaws.services.translate.model.TranslateTextRequest;
-import com.amazonaws.services.translate.model.TranslateTextResult;
-import com.apollographql.apollo.GraphQLCall;
-import com.apollographql.apollo.api.Response;
-import com.apollographql.apollo.exception.ApolloException;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Nonnull;
+/* TRANSLATE #100 --*/
+//import com.amazonaws.services.translate.AmazonTranslateAsyncClient;
+//import com.amazonaws.services.translate.model.TranslateTextRequest;
+//import com.amazonaws.services.translate.model.TranslateTextResult;
+/* -- TRANSLATE #100 */
 
+/*  POLLY #100 --*/
+//import com.amazonaws.services.polly.AmazonPollyPresigningClient;
+//import com.amazonaws.services.polly.model.DescribeVoicesRequest;
+//import com.amazonaws.services.polly.model.DescribeVoicesResult;
+//import com.amazonaws.services.polly.model.Voice;
+/* -- POLLY #100 */
+
+
+/* API #100 -- */
+/*
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
+import com.amazonaws.mobileconnectors.appsync.sigv4.CognitoUserPoolsAuthProvider;
+import com.amazonaws.amplify.generated.graphql.CreateTranslatedHistoryMutation;
+import com.amazonaws.amplify.generated.graphql.DeleteTranslatedHistoryMutation;
+import com.amazonaws.amplify.generated.graphql.ListTranslatedHistorysQuery;
+import javax.annotation.Nonnull;
 import type.CreateTranslatedHistoryInput;
 import type.DeleteTranslatedHistoryInput;
+import com.apollographql.apollo.GraphQLCall;
+import com.apollographql.apollo.api.Response;
+import com.apollographql.apollo.exception.ApolloException;
+*/
+/* API #100 -- */
+
+/* NOTIFICATIONS #100 --*/
+//import com.google.android.gms.tasks.OnCompleteListener;
+//import com.google.android.gms.tasks.Task;
+//import com.google.firebase.iid.FirebaseInstanceId;
+//import com.google.firebase.iid.InstanceIdResult;
+//import com.amazonaws.mobileconnectors.pinpoint.PinpointConfiguration;
+//import com.amazonaws.mobileconnectors.pinpoint.PinpointManager;
+/* -- NOTIFICATIONS #100 */
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -79,8 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AWSCredentials awsCredentials = null;
     private AWSCredentialsProvider awsCredentialsProvider = null;
-    private HistoryAdapter mAdapter;
-    private ArrayList<ListTranslatedHistorysQuery.Item> mHistorys;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,8 +108,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.history_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
-        mAdapter = new HistoryAdapter(getApplicationContext());
-        recyclerView.setAdapter(mAdapter);
+
+        /* API #100 -- */
+        //mAdapter = new HistoryAdapter(getApplicationContext());
+        //recyclerView.setAdapter(mAdapter);
+        /* -- API #100  */
 
         checkPermission();
         setSpinnerSrcLanguage();
@@ -118,12 +135,12 @@ public class MainActivity extends AppCompatActivity {
         /* -- TRANSLATE #101 */
 
         /* API #100 -- */
-        appSyncInit();
-        query();
+        //appSyncInit();
+        //query();
         /* -- API #100 */
 
         /* NOTIFICATIONS #100 --*/
-        getPinpointManager(getApplicationContext());
+        //getPinpointManager(getApplicationContext());
         /* -- NOTIFICATIONS #100 */
     }
 
@@ -149,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_historydelete:
-                deleteHistory();
+                //deleteHistory();
                 return true;
 
             default:
@@ -295,7 +312,7 @@ public class MainActivity extends AppCompatActivity {
             mBoolVoiceRecoStarted = false;
 
             /* TRANSLATE #100 --*/
-            doTranslate(srcResult);
+            //doTranslate(srcResult);
             /* -- TRANSLATE #100 */
 
         }
@@ -343,6 +360,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /* TRANSLATE #101 --*/
+    /*
     private void doTranslate(String txt) {
 
         AmazonTranslateAsyncClient translateAsyncClient = new AmazonTranslateAsyncClient(awsCredentials);
@@ -370,6 +388,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    */
     /* -- TRANSLATE #101 */
 
     private Runnable mRunnable = new Runnable() {
@@ -377,14 +396,14 @@ public class MainActivity extends AppCompatActivity {
         public void run() {
             translatedsentences.setText(targetResult);
             /*  POLLY #100 --*/
-            doTTS(targetResult);
+            //doTTS(targetResult);
             /*  -- POLLY #100*/
 
         }
     };
 
     /*  POLLY #101 --*/
-
+/*
     private AmazonPollyPresigningClient client;
     private TTSPlayer tts;
 
@@ -414,17 +433,21 @@ public class MainActivity extends AppCompatActivity {
                 }
                 tts = new TTSPlayer();
                 tts.playVoice(client, ttsvoice, ttsTxt);
-                /* API #100 -- */
-                addToHistory();
-                /* -- API #100  */
+                // API #100 --
+                //addToHistory();
+                // -- API #100
             }
         }).start();
 
     }
+    */
     /*  -- POLLY #101*/
 
     /* API #100 -- */
+    /*
     private AWSAppSyncClient mAWSAppSyncClient;
+    private ArrayList<ListTranslatedHistorysQuery.Item> mHistorys;
+    private HistoryAdapter mAdapter;
 
     private void appSyncInit() {
         mAWSAppSyncClient = AWSAppSyncClient.builder()
@@ -531,10 +554,11 @@ public class MainActivity extends AppCompatActivity {
         public void onFailure(@Nonnull final ApolloException e) {
         }
     };
-
+    */
     /* -- API #100 */
 
     /* NOTIFICATIONS #100 --*/
+    /*
     private static PinpointManager pinpointManager;
 
     public static PinpointManager getPinpointManager(final Context applicationContext) {
@@ -570,5 +594,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return pinpointManager;
     }
+    */
     /* -- NOTIFICATIONS #100 */
 }

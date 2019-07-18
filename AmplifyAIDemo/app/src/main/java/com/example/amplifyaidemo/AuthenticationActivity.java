@@ -5,29 +5,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-/* AUTH #1 -- */
-import com.amazonaws.auth.CognitoCachingCredentialsProvider;
-import com.amazonaws.mobile.client.AWSMobileClient;
-import com.amazonaws.mobile.client.Callback;
-import com.amazonaws.mobile.client.SignInUIOptions;
-import com.amazonaws.mobile.client.UserStateDetails;
-import com.amazonaws.mobile.client.UserStateListener;
 
-import java.util.Map;
+/* AUTH #1 -- */
+//import com.amazonaws.mobile.client.AWSMobileClient;
+//import com.amazonaws.mobile.client.Callback;
+//import com.amazonaws.mobile.client.SignInUIOptions;
+//import com.amazonaws.mobile.client.UserStateDetails;
 /* -- AUTH #1 */
 
 public class AuthenticationActivity extends AppCompatActivity {
 
     private final String TAG = "demo";
-    AWSMobileClient client;
     @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.authentication_layout);
-        //AWSMobileClient.getInstance().currentUserState();
-
     }
 
     @Override
@@ -38,14 +32,13 @@ public class AuthenticationActivity extends AppCompatActivity {
 
 
         /* AUTH #2 -- */
-
-        AWSMobileClient.getInstance().initialize(getApplicationContext(), initlisenercallback);
+        //AWSMobileClient.getInstance().initialize(getApplicationContext(), initlisenercallback);
         /* -- AUTH #2  */
 
     }
 
     /* AUTH #3 -- */
-
+/*
     private void showSignIn() {
         try {
             finish();
@@ -56,13 +49,10 @@ public class AuthenticationActivity extends AppCompatActivity {
         }
     }
 
-
     Callback<UserStateDetails> initlisenercallback = new Callback<UserStateDetails>() {
 
         @Override
         public void onResult(UserStateDetails userStateDetails) {
-
-
             Log.d(TAG, "First : userStateDetails.getUserState()="+ userStateDetails.getUserState());
             switch (userStateDetails.getUserState()) {
                 case SIGNED_IN:
@@ -90,12 +80,11 @@ public class AuthenticationActivity extends AppCompatActivity {
 
         @Override
         public void onError(Exception e) {
-            Log.e(TAG, "11111111111");
             AWSMobileClient.getInstance().initialize(getApplicationContext(), initlisenercallback);
             Log.e(TAG, e.toString());
         }
     };
-
+*/
     /* -- AUTH #3  */
 
 }
